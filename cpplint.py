@@ -6401,8 +6401,6 @@ def FlagCxx11Features(filename, clean_lines, linenum, error):
                                       'fenv.h',
                                       'future',
                                       'mutex',
-                                      'thread',
-                                      'chrono',
                                       'ratio',
                                       'regex',
                                       'system_error',
