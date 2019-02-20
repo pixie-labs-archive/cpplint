@@ -6014,7 +6014,6 @@ def FlagCxx11Features(filename, clean_lines, linenum, error):
                                       'future',
                                       'mutex',
                                       'ratio',
-                                      'regex',
                                       'system_error',
                                      ):
     error(filename, linenum, 'build/c++11', 5,
