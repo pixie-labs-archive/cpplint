@@ -457,7 +457,6 @@ _CPP_HEADERS = frozenset([
     'queue',
     'random',
     'ratio',
-    'regex',
     'scoped_allocator',
     'set',
     'sstream',
