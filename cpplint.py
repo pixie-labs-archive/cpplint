@@ -4643,7 +4643,7 @@ def _ClassifyInclude(fileinfo, include, is_system):
   is_cpp_h = include in _CPP_HEADERS
 
   # Headers with C++ extensions shouldn't be considered C system headers
-  if is_system and os.path.splitext(include)[1] in ['.hpp', '.hxx', '.h++']:
+  if is_system and os.path.splitext(include)[1] in ['.hpp', '.hxx', '.h++', '.hh']:
       is_system = False
 
   if is_system:
@@ -6010,10 +6010,8 @@ def FlagCxx11Features(filename, clean_lines, linenum, error):
 
   # Flag unapproved C++11 headers.
   if include and include.group(1) in ('cfenv',
-                                      'condition_variable',
                                       'fenv.h',
                                       'future',
-                                      'mutex',
                                       'ratio',
                                       'system_error',
                                      ):
