@@ -6011,7 +6011,6 @@ def FlagCxx11Features(filename, clean_lines, linenum, error):
   # Flag unapproved C++11 headers.
   if include and include.group(1) in ('cfenv',
                                       'fenv.h',
-                                      'future',
                                       'ratio',
                                       'system_error',
                                      ):
