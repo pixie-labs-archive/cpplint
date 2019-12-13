@@ -518,6 +518,14 @@ _CPP_HEADERS = frozenset([
     'cwctype',
     ])
 
+# Known C++ header directories.
+_CPP_HEADER_DIRS = tuple([
+    'absl/',
+    'gtest/',
+    'gmock/',
+    'benchmark/'
+])
+
 # Type names
 _TYPES = re.compile(
     r'^(?:'
@@ -4638,9 +4646,10 @@ def _ClassifyInclude(fileinfo, include, is_system):
     >>> _ClassifyInclude(FileInfo('foo/foo.cc'), 'foo/bar.h', False)
     _OTHER_HEADER
   """
+
   # This is a list of all standard c++ header files, except
   # those already checked for above.
-  is_cpp_h = include in _CPP_HEADERS
+  is_cpp_h = (include in _CPP_HEADERS) or (include.startswith(_CPP_HEADER_DIRS))
 
   # Headers with C++ extensions shouldn't be considered C system headers
   if is_system and os.path.splitext(include)[1] in ['.hpp', '.hxx', '.h++', '.hh']:
