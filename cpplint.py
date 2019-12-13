@@ -717,6 +717,17 @@ C_STANDARD_HEADER_FOLDERS = frozenset([
     "xen",
   ])
 
+# Known C++ header directories.
+_CPP_HEADER_DIRS = tuple([
+    'experimental/',
+    'absl/',
+    'benchmark/',
+    'gmock/',
+    'gtest/',
+    'google/protobuf/',
+    'grpcpp/',
+])
+
 # Type names
 _TYPES = re.compile(
     r'^(?:'
@@ -4998,7 +5009,7 @@ def _ClassifyInclude(fileinfo, include, used_angle_brackets, include_order="defa
   """
   # This is a list of all standard c++ header files, except
   # those already checked for above.
-  is_cpp_header = include in _CPP_HEADERS
+  is_cpp_header = (include in _CPP_HEADERS) or (include.startswith(_CPP_HEADER_DIRS))
 
   # Mark include as C header if in list or in a known folder for standard-ish C headers.
   is_std_c_header = (include_order == "default") or (include in _C_HEADERS
