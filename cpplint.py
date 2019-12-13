@@ -520,10 +520,13 @@ _CPP_HEADERS = frozenset([
 
 # Known C++ header directories.
 _CPP_HEADER_DIRS = tuple([
+    'experimental/',
     'absl/',
-    'gtest/',
+    'benchmark/',
     'gmock/',
-    'benchmark/'
+    'gtest/',
+    'google/protobuf/',
+    'grpcpp/',
 ])
 
 # Type names
